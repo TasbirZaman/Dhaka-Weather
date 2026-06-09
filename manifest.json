@@ -1,0 +1,16 @@
+{
+  "name": "Dhaka Weather",
+  "short_name": "Dhaka Wx",
+  "description": "Live hyperlocal weather for Dhaka, Bangladesh",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#08090b",
+  "theme_color": "#08090b",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["weather", "utilities"],
+  "lang": "en-BD"
+}
