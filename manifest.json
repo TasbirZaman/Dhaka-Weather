@@ -1,7 +1,7 @@
 {
   "name": "Dhaka Weather",
   "short_name": "Dhaka Wx",
-  "description": "Live hyperlocal weather for Dhaka, Bangladesh",
+  "description": "Live hyperlocal weather for Dhaka, Bangladesh — powered by Open-Meteo ECMWF",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#08090b",
