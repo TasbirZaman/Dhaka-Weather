@@ -824,7 +824,7 @@ function render(data, ai) {
   // Wind
   sT('mW',c.windSpeed+' km/h'); sT('mWD',c.windDir);
   raf(()=>{
-    const sv=$('wA');if(sv)sv.style.transform=`rotate(${compassToDeg(c.windDir)}deg)`;
+    const sv=$('wA');if(sv)sv.style.transform=`rotate(${compassToDeg(c.windDir)+180}deg)`;
     const wb=$('mWB');if(wb)wb.style.width=Math.min(100,c.windSpeed/60*100)+'%';
   });
 
