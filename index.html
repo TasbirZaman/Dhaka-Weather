@@ -22,50 +22,51 @@
   --r:16px;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;min-height:100dvh;overflow-x:hidden}
+body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:var(--tx);min-height:100dvh;overflow-x:hidden}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+@keyframes shimmer{0%{background-position:-200px 0}100%{background-position:200px 0}}
 
-/* ── LOADER ── */
+/* LOADER */
 .ldr{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:999;transition:opacity .45s}
 .ldr.out{opacity:0;pointer-events:none}
 .ldr-ring{width:40px;height:40px;border:2px solid var(--s3);border-top-color:var(--ac);border-radius:50%;animation:spin .7s linear infinite}
 .ldr-txt{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3)}
 .ldr-sub{font-size:10px;color:var(--t3);opacity:.5;text-align:center;max-width:220px;line-height:1.5}
 
-/* ── INSTALL BANNER ── */
-.install-bar{display:none;align-items:center;gap:12px;background:rgba(79,195,247,.08);border:1px solid rgba(79,195,247,.2);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:12px;color:var(--ac)}
-.install-bar.show{display:flex}
-.install-btn{margin-left:auto;background:var(--ac);color:#000;border:none;border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap}
-.install-close{background:none;border:none;color:var(--t3);cursor:pointer;font-size:16px;padding:0 4px}
+/* INSTALL BANNER */
+.ins{display:none;align-items:center;gap:10px;background:rgba(79,195,247,.07);border:1px solid rgba(79,195,247,.18);border-radius:12px;padding:11px 14px;margin-bottom:16px;font-size:12px;color:var(--ac);line-height:1.4}
+.ins.show{display:flex}
+.ins-btn{margin-left:auto;flex-shrink:0;background:var(--ac);color:#000;border:none;border-radius:7px;padding:5px 13px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
+.ins-x{background:none;border:none;color:var(--t3);cursor:pointer;font-size:16px;padding:0 2px;flex-shrink:0}
 
-/* ── APP ── */
+/* APP */
 .app{max-width:430px;margin:0 auto;padding:24px 16px 80px;display:none}
 .s{opacity:0;animation:up .5s ease forwards}
 
-/* ── HEADER ── */
+/* HEADER */
 .hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px}
 .hdr-l{display:flex;align-items:flex-start;gap:9px}
 .dot{width:6px;height:6px;background:var(--ac);border-radius:50%;box-shadow:0 0 8px var(--ac);animation:pulse 2s ease infinite;margin-top:5px;flex-shrink:0}
 .hdr-city{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t2)}
 .hdr-dt{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--ac);margin-top:3px}
 .hdr-upd{font-size:10px;color:var(--t3);margin-top:2px}
-.btn-r{width:34px;height:34px;border-radius:50%;background:var(--s2);border:1px solid var(--b1);color:var(--t3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .2s;flex-shrink:0;margin-top:2px}
-.btn-r:hover{border-color:var(--ac);color:var(--ac)}
-.btn-r.spin{animation:spin .6s linear infinite}
+.rbtn{width:34px;height:34px;border-radius:50%;background:var(--s2);border:1px solid var(--b1);color:var(--t3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .2s;flex-shrink:0;margin-top:2px}
+.rbtn:hover{border-color:var(--ac);color:var(--ac)}
+.rbtn.spin{animation:spin .6s linear infinite}
 
-/* ── HERO ── */
+/* HERO */
 .hero{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:20px 20px 18px;margin-bottom:20px}
 .hero-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px}
 .tb{display:flex;flex-direction:column}
-.trow{display:flex;align-items:flex-start;gap:4px}
-.tnum{font-family:'Google Sans Display',sans-serif;font-size:clamp(72px,18vw,92px);font-weight:700;line-height:.88;letter-spacing:-3px;color:var(--tx)}
-.tdeg{font-size:22px;font-weight:400;color:var(--t3);padding-top:10px}
+.tr{display:flex;align-items:flex-start;gap:4px}
+.tn{font-family:'Google Sans Display',sans-serif;font-size:clamp(72px,18vw,92px);font-weight:700;line-height:.88;letter-spacing:-3px;color:var(--tx)}
+.tc{font-size:22px;font-weight:400;color:var(--t3);padding-top:10px}
 .fb{margin-top:10px;display:flex;align-items:baseline;gap:6px;background:rgba(251,146,60,.08);border:1px solid rgba(251,146,60,.2);border-radius:10px;padding:8px 14px;width:fit-content}
-.flbl{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--warm);opacity:.8}
-.fnum{font-family:'Google Sans Display',sans-serif;font-size:34px;font-weight:700;line-height:1;letter-spacing:-1px;color:var(--warm)}
-.fdeg{font-size:16px;font-weight:400;color:var(--warm);opacity:.7;align-self:flex-start;padding-top:4px}
+.fl{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--warm);opacity:.8}
+.fn{font-family:'Google Sans Display',sans-serif;font-size:34px;font-weight:700;line-height:1;letter-spacing:-1px;color:var(--warm)}
+.fc{font-size:16px;font-weight:400;color:var(--warm);opacity:.7;align-self:flex-start;padding-top:4px}
 .hr{display:flex;flex-direction:column;align-items:flex-end;gap:6px;padding-top:4px}
 .hico{font-size:52px;line-height:1}
 .hcond{font-size:14px;font-weight:600;color:var(--t2);text-align:right;max-width:130px;line-height:1.3}
@@ -75,34 +76,35 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
 .hlv{font-family:'Roboto Mono',monospace;font-size:18px;font-weight:500}
 .hlv.hi{color:var(--warm)}.hlv.lo{color:var(--rain)}
 
-/* ── AI SUMMARY ── */
-.ai-card{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:16px 18px;margin-bottom:20px}
-.ai-hdr{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:10px}
-.ai-bdg{background:linear-gradient(135deg,rgba(79,195,247,.15),rgba(192,132,252,.15));border:1px solid rgba(79,195,247,.2);border-radius:4px;padding:2px 7px;font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--ac)}
-.ai-txt{font-size:13px;color:var(--t2);line-height:1.68}
+/* AI CARD */
+.aic{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:16px 18px;margin-bottom:20px}
+.aih{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:10px}
+.aib{background:linear-gradient(135deg,rgba(79,195,247,.15),rgba(192,132,252,.15));border:1px solid rgba(79,195,247,.2);border-radius:4px;padding:2px 7px;font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--ac)}
+.ait{font-size:13px;color:var(--t2);line-height:1.68}
+.ait.loading{background:linear-gradient(90deg,var(--s3) 25%,var(--s2) 50%,var(--s3) 75%);background-size:400px 100%;animation:shimmer 1.5s infinite;border-radius:6px;height:60px;color:transparent}
 
-/* ── ALERT ── */
+/* ALERT */
 .alt{display:flex;align-items:flex-start;gap:10px;background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.2);border-radius:10px;padding:11px 14px;margin-bottom:18px;font-size:12px;font-weight:500;color:#fca5a5;line-height:1.45}
 .alt.h{display:none}
 
-/* ── SECTION LABEL ── */
+/* SEC LABEL */
 .slbl{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:10px}
 
-/* ── AQI ── */
+/* AQI */
 .aqc{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:16px 18px;margin-bottom:20px}
 .aqh{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.aqv{display:flex;align-items:baseline;gap:6px}
+.aqvw{display:flex;align-items:baseline;gap:6px}
 .aqn{font-family:'Roboto Mono',monospace;font-size:36px;font-weight:500;line-height:1}
 .aqu{font-size:11px;color:var(--t3)}
 .aqbdg{border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700}
-.aqt{height:6px;background:var(--s3);border-radius:3px;overflow:hidden;margin-bottom:8px}
-.aqf{height:100%;border-radius:3px;transition:width 1s ease}
+.aqtr{height:6px;background:var(--s3);border-radius:3px;overflow:hidden;margin-bottom:8px}
+.aqfl{height:100%;border-radius:3px;transition:width 1s ease}
 .aqsc{display:flex;justify-content:space-between}
 .aqsl{font-size:9px;color:var(--t3)}
-.aqd{font-size:11px;color:var(--t3);line-height:1.5;margin-top:10px;padding-top:10px;border-top:1px solid var(--b1)}
-.aqd b{color:var(--t2);font-weight:500}
+.aqdt{font-size:11px;color:var(--t3);line-height:1.5;margin-top:10px;padding-top:10px;border-top:1px solid var(--b1)}
+.aqdt b{color:var(--t2);font-weight:500}
 
-/* ── METRICS ── */
+/* METRICS */
 .mets{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
 .met{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:15px 15px 13px;transition:border-color .2s}
 .met:hover{border-color:var(--b2)}
@@ -117,7 +119,7 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
 .uvp{font-size:10px;color:var(--t3);margin-top:3px}
 .uvp b{color:var(--sun);font-weight:500}
 
-/* ── SUN/MOON ── */
+/* SUN/MOON */
 .sm{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:16px 18px;margin-bottom:20px}
 .arcw{position:relative;margin:6px 0 10px;height:54px;overflow:hidden}
 .arcsvg{width:100%;height:100%;display:block}
@@ -137,7 +139,7 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
 .mbw{width:60px;height:3px;background:var(--s3);border-radius:2px;overflow:hidden;margin-top:10px;flex-shrink:0}
 .mbf2{height:100%;background:rgba(255,255,255,.5);border-radius:2px;transition:width 1s ease}
 
-/* ── HOURLY ── */
+/* HOURLY */
 .hou{margin-bottom:20px}
 .hsc{display:flex;gap:7px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
 .hsc::-webkit-scrollbar{display:none}
@@ -152,7 +154,7 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
 .hfe{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--warm);margin-bottom:3px}
 .hrn{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--rain)}
 
-/* ── RAIN TIMELINE ── */
+/* RAIN TL */
 .rtl{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:16px 18px;margin-bottom:20px}
 .rtl.h{display:none}
 .rth{display:flex;align-items:center;gap:8px;margin-bottom:16px}
@@ -177,7 +179,7 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
 .tg-pk{background:rgba(248,113,113,.15);color:var(--re)}
 .tg-en{background:rgba(52,211,153,.1);color:var(--gr)}
 
-/* ── 7-DAY ── */
+/* 7-DAY */
 .wk{margin-bottom:20px}
 .dr{display:flex;align-items:center;gap:8px;padding:11px 14px;border-radius:10px;cursor:default;transition:background .15s}
 .dr:hover{background:var(--s1)}
@@ -192,7 +194,7 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
 .dfl{font-size:8px;color:rgba(251,146,60,.6);text-transform:uppercase;letter-spacing:.04em}
 .dfe{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--warm)}
 
-/* ── CHART ── */
+/* CHART */
 .chc{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:16px 18px;margin-bottom:20px}
 .bc{display:flex;align-items:flex-end;gap:5px;height:76px;margin-top:12px}
 .bco{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
@@ -201,7 +203,7 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
 .bf.lo{background:rgba(92,155,255,.45)}.bf.md{background:rgba(92,155,255,.8)}.bf.hi{background:var(--storm)}
 .bd{font-size:10px;color:var(--t3);text-align:center;margin-top:5px;font-family:'Roboto Mono',monospace}
 
-/* ── ADVISORY ── */
+/* ADVISORY */
 .adv{margin-bottom:0}
 .adl{display:flex;flex-direction:column;gap:8px}
 .adc{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:14px 16px;display:flex;gap:14px;align-items:flex-start;transition:border-color .2s}
@@ -212,7 +214,7 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
 .add b{color:var(--t2);font-weight:500}
 
 .ts{text-align:center;font-family:'Roboto Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.06em;margin-top:20px}
-.src{text-align:center;font-family:'Roboto Mono',monospace;font-size:9px;color:var(--t3);opacity:.35;margin-top:4px}
+.src{text-align:center;font-family:'Roboto Mono',monospace;font-size:9px;color:var(--t3);opacity:.3;margin-top:4px}
 </style>
 </head>
 <body>
@@ -225,12 +227,11 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
 
 <div class="app" id="app">
 
-  <!-- Install prompt -->
-  <div class="install-bar" id="installBar">
+  <div class="ins" id="insBar">
     <span>📲</span>
     <span>Install Dhaka Weather as an app</span>
-    <button class="install-btn" id="installBtn">Install</button>
-    <button class="install-close" id="installClose">✕</button>
+    <button class="ins-btn" id="insBtn">Install</button>
+    <button class="ins-x" id="insX">✕</button>
   </div>
 
   <div class="hdr s" style="animation-delay:0s">
@@ -242,14 +243,14 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
         <div class="hdr-upd" id="hdrUpd">—</div>
       </div>
     </div>
-    <button class="btn-r" id="btnR" onclick="doRefresh()" title="Refresh">↻</button>
+    <button class="rbtn" id="rBtn" onclick="doRefresh()" title="Refresh">↻</button>
   </div>
 
   <div class="hero s" style="animation-delay:.04s">
     <div class="hero-top">
       <div class="tb">
-        <div class="trow"><div class="tnum" id="hTemp">—</div><div class="tdeg">°C</div></div>
-        <div class="fb"><div class="flbl">Feels</div><div class="fnum" id="hFeel">—</div><div class="fdeg">°C</div></div>
+        <div class="tr"><div class="tn" id="hTmp">—</div><div class="tc">°C</div></div>
+        <div class="fb"><div class="fl">Feels</div><div class="fn" id="hFel">—</div><div class="fc">°C</div></div>
       </div>
       <div class="hr">
         <div class="hico" id="hIco">—</div>
@@ -262,9 +263,9 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
     </div>
   </div>
 
-  <div class="ai-card s" style="animation-delay:.07s">
-    <div class="ai-hdr"><span>AI Summary</span><span class="ai-bdg">LIVE</span></div>
-    <div class="ai-txt" id="aiTxt">Generating weather summary…</div>
+  <div class="aic s" style="animation-delay:.07s">
+    <div class="aih"><span>AI Summary</span><span class="aib">LIVE</span></div>
+    <div class="ait loading" id="aiTxt"> </div>
   </div>
 
   <div class="alt h s" id="altBar" style="animation-delay:.09s">
@@ -275,15 +276,15 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
   <div class="aqc s" style="animation-delay:.1s">
     <div class="slbl">Air Quality Index</div>
     <div class="aqh">
-      <div class="aqv"><div class="aqn" id="aqN">—</div><div class="aqu">AQI</div></div>
+      <div class="aqvw"><div class="aqn" id="aqN">—</div><div class="aqu">AQI</div></div>
       <div class="aqbdg" id="aqB">—</div>
     </div>
-    <div class="aqt"><div class="aqf" id="aqF"></div></div>
+    <div class="aqtr"><div class="aqfl" id="aqF"></div></div>
     <div class="aqsc">
       <span class="aqsl">Good</span><span class="aqsl">Moderate</span>
       <span class="aqsl">Unhealthy</span><span class="aqsl">Hazardous</span>
     </div>
-    <div class="aqd" id="aqD">—</div>
+    <div class="aqdt" id="aqD">—</div>
   </div>
 
   <div class="mets s" style="animation-delay:.12s">
@@ -310,7 +311,7 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
       <div class="ml">Rain Today</div>
       <div class="mv" id="mR">—%</div>
       <div class="ms">Start <b id="mRS">—</b></div>
-      <div class="ms">End &nbsp;&nbsp;<b id="mRE">—</b></div>
+      <div class="ms">End&nbsp;&nbsp;&nbsp;<b id="mRE">—</b></div>
       <div class="mb"><div class="mbf" id="mRB" style="background:var(--storm)"></div></div>
     </div>
     <div class="met">
@@ -379,62 +380,50 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
   </div>
 
   <div class="ts" id="tsEl"></div>
-  <div class="src">Live data: Open-Meteo (ECMWF/GFS) · Air Quality API · Astronomy computed</div>
+  <div class="src">Live data: Open-Meteo (ECMWF/GFS) · Air Quality API · Astronomy computed locally</div>
 </div>
 
 <script>
 // ═══════════════════════════════════════════════════════════
-//  ARCHITECTURE
-//  Open-Meteo APIs → fetched DIRECTLY (CORS-enabled, free)
-//  These work perfectly when app is opened outside Claude.ai
-//  (saved PWA, phone browser, desktop browser)
-//  Claude AI → used ONLY for narrative summary + advisory text
+//  CONFIG
+//  AI_PROXY_URL: Set this to your Cloudflare Worker URL that
+//  proxies to Anthropic (see worker.js in this repo).
+//  If left empty, a smart local summary is generated instead.
 // ═══════════════════════════════════════════════════════════
+const AI_PROXY_URL = ''; // e.g. 'https://dhaka-weather-ai.YOUR-SUBDOMAIN.workers.dev/ai-summary'
 
 const LAT = 23.8103, LON = 90.4125;
 
-// ── PWA install prompt ────────────────────────────────────
-let deferredInstallPrompt = null;
+// ── PWA install ─────────────────────────────────────────────
+let dip = null;
 window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredInstallPrompt = e;
-  const bar = document.getElementById('installBar');
-  if (bar) bar.classList.add('show');
+  e.preventDefault(); dip = e;
+  const b = document.getElementById('insBar');
+  if (b) b.classList.add('show');
 });
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('installBtn');
-  const close = document.getElementById('installClose');
-  const bar = document.getElementById('installBar');
-  if (btn) btn.addEventListener('click', () => {
-    if (deferredInstallPrompt) {
-      deferredInstallPrompt.prompt();
-      deferredInstallPrompt.userChoice.then(() => {
-        deferredInstallPrompt = null;
-        if (bar) bar.classList.remove('show');
-      });
-    }
-  });
-  if (close) close.addEventListener('click', () => { if (bar) bar.classList.remove('show'); });
+window.addEventListener('appinstalled', () => {
+  const b = document.getElementById('insBar');
+  if (b) b.classList.remove('show');
 });
 
-// ── Register service worker ───────────────────────────────
+// ── Service Worker ──────────────────────────────────────────
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js').catch(() => {});
   });
 }
 
-// ── DHAKA TIME (UTC+6) ────────────────────────────────────
+// ── Dhaka time (UTC+6) ──────────────────────────────────────
 function dkNow() {
-  const now = new Date();
-  const d = new Date(now.getTime() + now.getTimezoneOffset() * 60000 + 6 * 3600000);
+  const n = new Date();
+  const d = new Date(n.getTime() + n.getTimezoneOffset() * 60000 + 6 * 3600000);
   return {
     d, hr: d.getHours(), min: d.getMinutes(),
     isNight: d.getHours() >= 19 || d.getHours() < 6,
     isoHr: d.toISOString().slice(0, 13),
     label: d.toLocaleString('en-US', {
-      weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
-      hour: '2-digit', minute: '2-digit', hour12: true
+      weekday:'long', month:'long', day:'numeric', year:'numeric',
+      hour:'2-digit', minute:'2-digit', hour12:true
     })
   };
 }
@@ -444,118 +433,97 @@ function startClock() {
   clearInterval(_ck);
   const tick = () => {
     const t = dkNow();
-    const timeStr = t.d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
-    const dateStr = t.d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-    const el = document.getElementById('hdrDt');
-    if (el) el.textContent = `${dateStr}  ·  ${timeStr} BST`;
+    const ts = t.d.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit', hour12:true });
+    const ds = t.d.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
+    const e = document.getElementById('hdrDt');
+    if (e) e.textContent = ds + '  ·  ' + ts + ' BST';
   };
   tick();
   _ck = setInterval(tick, 30000);
 }
 
-// ── MOON PHASE (computed locally) ────────────────────────
+// ── Moon phase (computed locally, no API) ───────────────────
 function moonPhase(date) {
-  const yr = date.getFullYear(), mo = date.getMonth() + 1, dy = date.getDate();
+  const yr = date.getFullYear(), mo = date.getMonth()+1, dy = date.getDate();
   let y = yr, m = mo;
   if (m < 3) { y--; m += 12; }
-  const a = Math.floor(y / 100), b = 2 - a + Math.floor(a / 4);
-  const jd = Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + dy + b - 1524.5;
+  const a = Math.floor(y/100), b = 2 - a + Math.floor(a/4);
+  const jd = Math.floor(365.25*(y+4716)) + Math.floor(30.6001*(m+1)) + dy + b - 1524.5;
   let age = (jd - 2451549.5) % 29.53058867;
   if (age < 0) age += 29.53058867;
   const illum = Math.round(50 * (1 - Math.cos(2 * Math.PI * age / 29.53058867)));
-  let phase, icon;
-  if (age < 1.85)       { phase = 'New Moon';        icon = '🌑'; }
-  else if (age < 7.38)  { phase = 'Waxing Crescent'; icon = '🌒'; }
-  else if (age < 9.22)  { phase = 'First Quarter';   icon = '🌓'; }
-  else if (age < 14.77) { phase = 'Waxing Gibbous';  icon = '🌔'; }
-  else if (age < 16.61) { phase = 'Full Moon';       icon = '🌕'; }
-  else if (age < 22.15) { phase = 'Waning Gibbous';  icon = '🌖'; }
-  else if (age < 23.99) { phase = 'Third Quarter';   icon = '🌗'; }
-  else                  { phase = 'Waning Crescent'; icon = '🌘'; }
+  const phases = [
+    [1.85,'New Moon','🌑'],[7.38,'Waxing Crescent','🌒'],[9.22,'First Quarter','🌓'],
+    [14.77,'Waxing Gibbous','🌔'],[16.61,'Full Moon','🌕'],[22.15,'Waning Gibbous','🌖'],
+    [23.99,'Third Quarter','🌗'],[29.53,'Waning Crescent','🌘']
+  ];
+  let phase = 'New Moon', icon = '🌑';
+  for (const [limit, p, i] of phases) { if (age < limit) { phase = p; icon = i; break; } }
   const cycle = 29.53058867;
   const nd = ag => {
     let d2 = (ag - age + cycle) % cycle;
     if (d2 < 0.5) d2 += cycle;
-    return new Date(date.getTime() + d2 * 86400000)
-      .toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    return new Date(date.getTime() + d2*86400000)
+      .toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' });
   };
   return { phase, icon, illumination: illum, nextFull: nd(14.77), nextNew: nd(0) };
 }
 
-// ── WMO CODE → CONDITION + ICON ──────────────────────────
+// ── WMO code → condition label + icon ───────────────────────
 function wmoLabel(code, isNight, humidity, wind) {
   const n = isNight;
-  const labels = {
-    0:  [n?'Clear Night':'Sunny',               n?'🌙':'☀️'],
-    1:  [n?'Mostly Clear Night':'Mostly Sunny',  n?'🌙':'🌤️'],
-    2:  [n?'Partly Cloudy Night':'Partly Cloudy',n?'⛅':'⛅'],
-    3:  ['Mostly Cloudy, Overcast',              '☁️'],
-    45: [n?'Foggy Night':'Foggy, Misty',         '🌫️'],
-    48: ['Dense Fog',                             '🌫️'],
-    51: ['Light Drizzle',                         '🌦️'],
-    53: ['Drizzle',                               '🌦️'],
-    55: ['Heavy Drizzle',                         '🌧️'],
-    61: ['Light Rain',                            '🌧️'],
-    63: ['Moderate Rain',                         '🌧️'],
-    65: ['Heavy Rain',                            '🌧️'],
-    80: ['Scattered Showers',                     '🌦️'],
-    81: ['Showers',                               '🌧️'],
-    82: ['Heavy Showers',                         '🌧️'],
-    95: ['Thunderstorm',                          '⛈️'],
-    96: ['Thunderstorm with Hail',                '⛈️'],
-    99: ['Severe Thunderstorm',                   '⛈️'],
+  const m = {
+    0:[n?'Clear Night':'Sunny',n?'🌙':'☀️'],
+    1:[n?'Mostly Clear Night':'Mostly Sunny',n?'🌙':'🌤️'],
+    2:[n?'Partly Cloudy Night':'Partly Cloudy','⛅'],
+    3:['Mostly Cloudy, Overcast','☁️'],
+    45:[n?'Foggy Night':'Foggy, Misty','🌫️'],
+    48:['Dense Fog','🌫️'],
+    51:['Light Drizzle','🌦️'],53:['Drizzle','🌦️'],55:['Heavy Drizzle','🌧️'],
+    61:['Light Rain','🌧️'],63:['Moderate Rain','🌧️'],65:['Heavy Rain','🌧️'],
+    80:['Scattered Showers','🌦️'],81:['Showers','🌧️'],82:['Heavy Showers','🌧️'],
+    95:['Thunderstorm','⛈️'],96:['Thunderstorm with Hail','⛈️'],99:['Severe Thunderstorm','⛈️']
   };
-  let [cond, icon] = labels[code] || ['Partly Cloudy', '⛅'];
-  // Enrich with context
+  let [cond, icon] = m[code] || ['Partly Cloudy','⛅'];
   if (!n && !/rain|storm|drizzle|shower|fog/i.test(cond)) {
     if (humidity > 80) cond += ', Humid & Hazy';
     else if (humidity > 72) cond += ', Humid';
-    if (wind > 30 && !/storm/i.test(cond)) cond = 'Windy, ' + cond;
+    if (wind > 30) cond = 'Windy, ' + cond;
     else if (wind > 22) cond = 'Breezy, ' + cond;
   }
   return [cond, icon];
 }
 
-// ── HEAT INDEX (NOAA Rothfusz) ────────────────────────────
+// ── Heat index (NOAA Rothfusz) ───────────────────────────────
 function heatIdx(T, RH) {
-  if (T < 27) return T;
+  if (T < 27) return Math.round(T);
   return Math.round(-8.78 + 1.611*T + 2.339*RH - 0.1461*T*RH
     - 0.01231*T*T - 0.01642*RH*RH + 0.002212*T*T*RH
-    + 0.000725*T*RH*RH - 0.000003582*T*T*RH*RH);
+    + 0.000725*T*RH*RH - 3.582e-6*T*T*RH*RH);
 }
 
-// ── WIND DEG → COMPASS ───────────────────────────────────
-function degToCompass(deg) {
-  return ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'][Math.round(deg/22.5)%16];
-}
-function compassToDeg(dir) {
-  const m={N:0,NNE:22.5,NE:45,ENE:67.5,E:90,ESE:112.5,SE:135,SSE:157.5,S:180,SSW:202.5,SW:225,WSW:247.5,W:270,WNW:292.5,NW:315,NNW:337.5};
-  const p = String(dir).toUpperCase().replace(/[^A-Z\/]/g,'').split('/');
-  return p.reduce((s,x)=>s+(m[x.trim()]||180),0)/(p.length||1);
-}
-
-// ── UV LABEL ─────────────────────────────────────────────
+// ── Helpers ──────────────────────────────────────────────────
+const degToCompass = d => ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'][Math.round(d/22.5)%16];
+const compassToDeg = s => { const m={N:0,NNE:22.5,NE:45,ENE:67.5,E:90,ESE:112.5,SE:135,SSE:157.5,S:180,SSW:202.5,SW:225,WSW:247.5,W:270,WNW:292.5,NW:315,NNW:337.5}; return String(s).toUpperCase().replace(/[^A-Z\/]/g,'').split('/').reduce((a,p)=>a+(m[p.trim()]||180),0)/Math.max(1,String(s).split('/').length); };
 const uvLbl = v => v<=0?'None':v<=2?'Low':v<=5?'Moderate':v<=7?'High':v<=10?'Very High':'Extreme';
+const pm25ToAqi = pm => { const bp=[[0,12,0,50],[12.1,35.4,51,100],[35.5,55.4,101,150],[55.5,150.4,151,200],[150.5,250.4,201,300],[250.5,500.4,301,500]]; for(const[cl,ch,il,ih] of bp)if(pm>=cl&&pm<=ch)return Math.round((ih-il)/(ch-cl)*(pm-cl)+il); return Math.min(500,Math.round(pm)); };
 
-// ── AQI STYLE ────────────────────────────────────────────
 function aqiStyle(n) {
   n = Number(n)||0;
-  if (n<=50)  return {label:'Good',              color:'#34d399',bg:'rgba(52,211,153,.12)', pct:n/500*100};
-  if (n<=100) return {label:'Moderate',           color:'#fbbf24',bg:'rgba(251,191,36,.12)', pct:n/500*100};
-  if (n<=150) return {label:'Unhealthy for Some', color:'#fb923c',bg:'rgba(251,146,60,.12)', pct:n/500*100};
-  if (n<=200) return {label:'Unhealthy',          color:'#f87171',bg:'rgba(248,113,113,.12)',pct:n/500*100};
-  if (n<=300) return {label:'Very Unhealthy',     color:'#c084fc',bg:'rgba(192,132,252,.12)',pct:n/500*100};
-  return             {label:'Hazardous',           color:'#f43f5e',bg:'rgba(244,63,94,.15)', pct:100};
+  if(n<=50)  return{label:'Good',              color:'#34d399',bg:'rgba(52,211,153,.12)', pct:n/500*100};
+  if(n<=100) return{label:'Moderate',           color:'#fbbf24',bg:'rgba(251,191,36,.12)', pct:n/500*100};
+  if(n<=150) return{label:'Unhealthy for Some', color:'#fb923c',bg:'rgba(251,146,60,.12)', pct:n/500*100};
+  if(n<=200) return{label:'Unhealthy',          color:'#f87171',bg:'rgba(248,113,113,.12)',pct:n/500*100};
+  if(n<=300) return{label:'Very Unhealthy',     color:'#c084fc',bg:'rgba(192,132,252,.12)',pct:n/500*100};
+  return            {label:'Hazardous',          color:'#f43f5e',bg:'rgba(244,63,94,.15)', pct:100};
 }
 
-// ── PM2.5 → AQI (EPA) ────────────────────────────────────
-function pm25ToAqi(pm) {
-  const bp=[[0,12,0,50],[12.1,35.4,51,100],[35.5,55.4,101,150],[55.5,150.4,151,200],[150.5,250.4,201,300],[250.5,500.4,301,500]];
-  for(const[cl,ch,il,ih] of bp) if(pm>=cl&&pm<=ch) return Math.round((ih-il)/(ch-cl)*(pm-cl)+il);
-  return Math.min(500,Math.round(pm));
-}
+const $  = id => document.getElementById(id);
+const sT = (id,v) => { const e=$(id); if(e) e.textContent = v!=null?v:'—'; };
+const sH = (id,v) => { const e=$(id); if(e) e.innerHTML   = v!=null?v:''; };
+const raf = fn => setTimeout(fn, 80);
 
-// ── SUN ARC ──────────────────────────────────────────────
+// ── Sun arc ──────────────────────────────────────────────────
 function parseST(s) {
   const m = String(s||'').match(/(\d+):(\d+)\s*(AM|PM)/i);
   if (!m) return 0;
@@ -566,43 +534,30 @@ function parseST(s) {
 }
 function renderArc(rise, set) {
   const t=dkNow(), now=t.hr*60+t.min, rs=parseST(rise), ss=parseST(set);
-  const bz=p=>({
-    x:(1-p)**2*8+2*p*(1-p)*195+p**2*382,
-    y:(1-p)**2*50+2*p*(1-p)*2+p**2*50
-  });
-  const dot=document.getElementById('aD'),prog=document.getElementById('aP'),nl=document.getElementById('aN');
+  const bz=p=>({x:(1-p)**2*8+2*p*(1-p)*195+p**2*382,y:(1-p)**2*50+2*p*(1-p)*2+p**2*50});
+  const dot=$('aD'),prog=$('aP'),nl=$('aN');
   if(!dot||!prog)return;
   if(now<rs||now>ss){dot.setAttribute('cx','-20');prog.setAttribute('d','');if(nl)nl.setAttribute('display','block');return;}
   if(nl)nl.setAttribute('display','none');
   const frac=Math.max(0,Math.min(1,(now-rs)/(ss-rs)));
-  const pt=bz(frac);
-  dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y);
-  let d='M 8 50';
-  for(let i=1;i<=24;i++){const p=bz((i/24)*frac);d+=` L ${p.x} ${p.y}`;}
+  const pt=bz(frac); dot.setAttribute('cx',pt.x); dot.setAttribute('cy',pt.y);
+  let d='M 8 50'; for(let i=1;i<=24;i++){const p=bz((i/24)*frac);d+=` L ${p.x} ${p.y}`;}
   prog.setAttribute('d',d);
 }
 
-// ── DOM HELPERS ──────────────────────────────────────────
-const $=id=>document.getElementById(id);
-const sT=(id,v)=>{const e=$(id);if(e)e.textContent=v!=null?v:'—';};
-const sH=(id,v)=>{const e=$(id);if(e)e.innerHTML=v!=null?v:'';};
-const raf=fn=>setTimeout(fn,80);
-
-// ── RAIN TIMELINE BUILDER (from hourly data) ─────────────
-function buildRainTL(times, probs, codes, startIdx) {
+// ── Rain timeline builder ────────────────────────────────────
+function buildRainTL(times, probs, codes, ci) {
   const evs=[], fmt=i=>new Date(times[i]).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
   let inRain=false;
-  const end=Math.min(startIdx+24,times.length);
-  for(let i=startIdx;i<end;i++){
-    const p=probs[i]||0, c=codes[i]||0, isRainCode=c>=51;
-    if((p>=35||isRainCode)&&!inRain){
+  for(let i=ci;i<Math.min(ci+24,times.length);i++){
+    const p=probs[i]||0,c=codes[i]||0;
+    if((p>=35||c>=51)&&!inRain){
       inRain=true;
       const k=p>=70?'high':p>=50?'medium':'low';
-      const d=c>=95?`Thunderstorm developing, lightning likely (${p}%)`:c>=80?`Showers beginning (${p}% chance)`:c>=61?`Rain starting, moderate intensity (${p}%)`:c>=51?`Light drizzle beginning (${p}% chance)`:`Rain developing (${p}%)`;
-      evs.push({time:fmt(i),desc:d,intensity:k});
-    }else if(p>=70&&inRain&&evs.length&&evs[evs.length-1].intensity!=='peak'){
-      evs.push({time:fmt(i),desc:`Peak rain intensity — ${c>=95?'thunderstorm, avoid outdoors':'heavy rain'} (${p}%)`,intensity:'peak'});
-    }else if((p<25)&&inRain){
+      evs.push({time:fmt(i),desc:c>=95?`Thunderstorm developing, lightning likely (${p}%)`:c>=80?`Showers beginning (${p}%)`:c>=61?`Rain starting, moderate intensity (${p}%)`:`Light rain developing (${p}%)`,intensity:k});
+    } else if(p>=70&&inRain&&evs.length&&evs[evs.length-1].intensity!=='peak'){
+      evs.push({time:fmt(i),desc:`Peak intensity — ${c>=95?'thunderstorm, avoid outdoors':'heavy rain'} (${p}%)`,intensity:'peak'});
+    } else if(p<25&&inRain){
       inRain=false;
       evs.push({time:fmt(i),desc:'Showers clearing, conditions improving',intensity:'end'});
     }
@@ -611,97 +566,117 @@ function buildRainTL(times, probs, codes, startIdx) {
   return evs.slice(0,8);
 }
 
-// ═══════════════════════════════════════════════════════════
-//  STEP 1: FETCH OPEN-METEO (direct browser fetch, CORS OK)
-// ═══════════════════════════════════════════════════════════
-async function fetchOpenMeteo() {
-  const url = 'https://api.open-meteo.com/v1/forecast' +
-    '?latitude='+LAT+'&longitude='+LON +
-    '&current=temperature_2m,relative_humidity_2m,apparent_temperature,' +
-    'precipitation_probability,weather_code,wind_speed_10m,wind_direction_10m,uv_index' +
-    '&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,' +
-    'precipitation_probability,weather_code,wind_speed_10m,uv_index' +
-    '&daily=temperature_2m_max,temperature_2m_min,apparent_temperature_max,' +
-    'precipitation_probability_max,weather_code,sunrise,sunset,uv_index_max' +
-    '&timezone=Asia%2FDhaka&forecast_days=8&wind_speed_unit=kmh';
-  const r = await fetch(url);
-  if (!r.ok) throw new Error('Open-Meteo ' + r.status);
+// ── Generate smart local AI summary (fallback when no proxy) ─
+function localSummary(c, moon, isNight) {
+  const timeOfDay = isNight ? 'tonight' :
+    c.temp < 28 ? 'this morning' :
+    c.temp >= 34 ? 'this afternoon' : 'today';
+  const condDesc = c.cond.toLowerCase();
+  const rainLine = c.rainProb >= 60
+    ? `Rain is expected ${c.rainStart !== 'Not expected' ? 'from around ' + c.rainStart : 'later'} with ${c.rainProb}% probability${c.rainEnd !== 'Not expected' ? ', clearing by ' + c.rainEnd : ''}.`
+    : c.rainProb >= 30
+    ? `There's a ${c.rainProb}% chance of rain — keep an umbrella handy.`
+    : 'Rain is unlikely today.';
+  const heatLine = c.feels >= 40
+    ? `It feels like ${Math.round(c.feels)}°C outdoors — extreme heat caution advised.`
+    : c.feels >= 35
+    ? `With humidity at ${c.humidity}%, it feels like ${Math.round(c.feels)}°C — stay hydrated.`
+    : '';
+  return `Hello Dhaka Dweller! 👋 It's currently ${Math.round(c.temp)}°C in Dhaka ${timeOfDay} — ${condDesc}, with humidity at ${c.humidity}% and winds ${c.windSpeed} km/h from the ${c.windDir}. ${rainLine} ${heatLine}`.trim();
+}
+
+function defaultAdvisory(c) {
+  const ac = Math.max(24, Math.round(c.temp)-8);
+  const ai = aqiStyle(c.aqi);
+  return [
+    {icon:'🌂',title:'Rain Preparedness',
+     desc:c.rainProb>50?`${c.rainProb}% rain probability — carry umbrella. Rain expected ${c.rainStart!=='Not expected'?'from '+c.rainStart:'later today'}.`:`Low rain risk (${c.rainProb}%). No umbrella needed today.`},
+    {icon:'😷',title:'Air Quality & Mask',
+     desc:`AQI ${c.aqi} — ${ai.label}. ${c.pm25>35?'Wear N95 outdoors. Worst pollution near Farmgate, Tejgaon, Hazaribagh, and Mohakhali.':'Air is acceptable today.'}`},
+    {icon:'👕',title:'Dress for the Weather',
+     desc:`${Math.round(c.temp)}°C with ${c.humidity}% humidity feels like ${Math.round(c.feels)}°C. Wear loose breathable cotton. Light colours only — dark clothes absorb heat dangerously.`},
+    {icon:'❄️',title:`Set AC to ${ac}–${ac+1}°C`,
+     desc:`Outdoor temp is ${Math.round(c.temp)}°C — set AC to max ${ac+1}°C (7–8°C gap rule). A larger gap stresses your respiratory system going in and out.`},
+    {icon:'🚧',title:'Waterlogging Risk',
+     desc:c.rainProb>50?'After rain: Mirpur-10, Rayer Bazar, Dhanmondi-27, Shyamoli, and Rampura flood with 30mm+ rain. Avoid these roads during and after heavy showers.':'Low waterlogging risk today.'},
+    {icon:'🦟',title:'Dengue Alert',
+     desc:'Empty balcony pots and AC trays — Aedes mosquitoes breed in standing water within 48h of rain. Use repellent after sunset in Mohammadpur, Uttara, and Bashundhara R/A.'}
+  ];
+}
+
+// ── FETCH Open-Meteo weather ─────────────────────────────────
+async function fetchWx() {
+  const r = await fetch(
+    'https://api.open-meteo.com/v1/forecast?latitude='+LAT+'&longitude='+LON+
+    '&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,weather_code,wind_speed_10m,wind_direction_10m,uv_index'+
+    '&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,weather_code,wind_speed_10m,uv_index'+
+    '&daily=temperature_2m_max,temperature_2m_min,apparent_temperature_max,precipitation_probability_max,weather_code,sunrise,sunset,uv_index_max'+
+    '&timezone=Asia%2FDhaka&forecast_days=8&wind_speed_unit=kmh'
+  );
+  if (!r.ok) throw new Error('Weather API ' + r.status);
   return r.json();
 }
 
-async function fetchAirQuality() {
-  const url = 'https://air-quality-api.open-meteo.com/v1/air-quality' +
-    '?latitude='+LAT+'&longitude='+LON +
-    '&current=pm2_5,pm10,us_aqi&timezone=Asia%2FDhaka';
-  const r = await fetch(url);
-  if (!r.ok) throw new Error('AQ ' + r.status);
+async function fetchAQ() {
+  const r = await fetch(
+    'https://air-quality-api.open-meteo.com/v1/air-quality?latitude='+LAT+'&longitude='+LON+
+    '&current=pm2_5,pm10,us_aqi&timezone=Asia%2FDhaka'
+  );
+  if (!r.ok) throw new Error('AQ API ' + r.status);
   return r.json();
 }
 
-// ═══════════════════════════════════════════════════════════
-//  STEP 2: PROCESS RAW DATA → APP DATA STRUCTURE
-// ═══════════════════════════════════════════════════════════
-function processData(wx, aq) {
+// ── Process raw API data → app data structure ────────────────
+function process(wx, aq) {
   const t = dkNow();
-  const cur = wx.current, hr = wx.hourly, day = wx.daily;
+  const cur = wx.current, hr = wx.hourly, dy = wx.daily;
 
-  // Find current hour in hourly array
-  const isoHr = t.isoHr;
+  // Find current hour index
   let ci = 0;
   for (let i = 0; i < hr.time.length; i++) {
-    if (hr.time[i].startsWith(isoHr)) { ci = i; break; }
+    if (hr.time[i].startsWith(t.isoHr)) { ci = i; break; }
   }
 
-  // Current
-  const temp   = Math.round(cur.temperature_2m * 10) / 10;
+  const temp   = Math.round(cur.temperature_2m*10)/10;
   const humid  = cur.relative_humidity_2m;
   const feels  = heatIdx(temp, humid);
-  const wmo    = cur.weather_code;
-  const night  = t.isNight;
   const wind   = Math.round(cur.wind_speed_10m);
-  const windDir= degToCompass(cur.wind_direction_10m);
-  const uv     = night ? 0 : Math.round(cur.uv_index * 10) / 10;
-  const [cond, icon] = wmoLabel(wmo, night, humid, cur.wind_speed_10m);
-
-  // Daily high/low
-  const high = Math.round(day.temperature_2m_max[0] * 10) / 10;
-  const low  = Math.round(day.temperature_2m_min[0] * 10) / 10;
-  const uvMax= Math.round(day.uv_index_max[0] * 10) / 10;
+  const night  = t.isNight;
+  const [cond, icon] = wmoLabel(cur.weather_code, night, humid, cur.wind_speed_10m);
+  const windDir = degToCompass(cur.wind_direction_10m);
+  const uv = night ? 0 : Math.round(cur.uv_index*10)/10;
+  const high = Math.round(dy.temperature_2m_max[0]*10)/10;
+  const low  = Math.round(dy.temperature_2m_min[0]*10)/10;
+  const uvMax = Math.round(dy.uv_index_max[0]*10)/10;
+  const maxRain = dy.precipitation_probability_max[0]||0;
 
   // Rain start/end
-  const maxRain = day.precipitation_probability_max[0] || 0;
-  let rainStart = 'Not expected', rainEnd = 'Not expected', foundStart = false;
-  for (let i = ci; i < Math.min(ci + 24, hr.time.length); i++) {
-    const p = hr.precipitation_probability[i] || 0;
-    const ts = new Date(hr.time[i]).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-    if (!foundStart && p >= 40) { rainStart = ts; foundStart = true; }
-    if (foundStart && p < 25 && rainEnd === 'Not expected') { rainEnd = ts; }
+  let rainStart='Not expected', rainEnd='Not expected', foundStart=false;
+  for(let i=ci;i<Math.min(ci+24,hr.time.length);i++){
+    const p=hr.precipitation_probability[i]||0;
+    const ts=new Date(hr.time[i]).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+    if(!foundStart&&p>=40){rainStart=ts;foundStart=true;}
+    if(foundStart&&p<25&&rainEnd==='Not expected'){rainEnd=ts;}
   }
 
-  // UV peak time
-  let uvPeakTime = '12:00 PM', uvPeakVal = 0;
-  for (let i = ci; i < Math.min(ci + 24, hr.time.length); i++) {
-    if ((hr.uv_index[i] || 0) > uvPeakVal) {
-      uvPeakVal = hr.uv_index[i];
-      uvPeakTime = new Date(hr.time[i]).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-    }
+  // UV peak
+  let uvPT='12:00 PM', uvPV=0;
+  for(let i=ci;i<Math.min(ci+24,hr.time.length);i++){
+    if((hr.uv_index[i]||0)>uvPV){uvPV=hr.uv_index[i];uvPT=new Date(hr.time[i]).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});}
   }
 
-  // Hourly — 8 slots starting from current hour
-  const hourly = [];
-  for (let i = ci; i < Math.min(ci + 8, hr.time.length); i++) {
-    const slotT  = Math.round(hr.temperature_2m[i] * 10) / 10;
-    const slotH  = hr.relative_humidity_2m[i] || 65;
-    const slotF  = heatIdx(slotT, slotH);
-    const slotHr = new Date(hr.time[i]).getHours();
-    const slotN  = slotHr >= 19 || slotHr < 6;
-    const [, slotIco] = wmoLabel(hr.weather_code[i] || 0, slotN, slotH, hr.wind_speed_10m[i] || 0);
+  // Hourly (8 slots, slot 0 = NOW)
+  const hourly=[];
+  for(let i=ci;i<Math.min(ci+8,hr.time.length);i++){
+    const sT2=Math.round(hr.temperature_2m[i]*10)/10;
+    const sH=hr.relative_humidity_2m[i]||65;
+    const sF=heatIdx(sT2,sH);
+    const sHr=new Date(hr.time[i]).getHours();
+    const sN=sHr>=19||sHr<6;
+    const[,sIco]=wmoLabel(hr.weather_code[i]||0,sN,sH,hr.wind_speed_10m[i]||0);
     hourly.push({
-      time:  i === ci ? 'NOW' : new Date(hr.time[i]).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }),
-      temp:  slotT,
-      feels: slotF,
-      icon:  slotIco,
-      rain:  hr.precipitation_probability[i] || 0
+      time:i===ci?'NOW':new Date(hr.time[i]).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true}),
+      temp:sT2, feels:sF, icon:sIco, rain:hr.precipitation_probability[i]||0
     });
   }
 
@@ -709,173 +684,166 @@ function processData(wx, aq) {
   const rainTimeline = buildRainTL(hr.time, hr.precipitation_probability, hr.weather_code, ci);
 
   // 7-day
-  const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  const weekly = [];
-  for (let d = 0; d < 7; d++) {
-    const dd = new Date(day.time[d]);
-    const [dc, di] = wmoLabel(day.weather_code[d], false, 70, 10);
-    weekly.push({
-      day:    dayNames[dd.getDay()],
-      today:  d === 0,
-      cond:   dc,
-      icon:   di,
-      high:   Math.round(day.temperature_2m_max[d] * 10) / 10,
-      low:    Math.round(day.temperature_2m_min[d] * 10) / 10,
-      feels:  Math.round((day.apparent_temperature_max[d] || day.temperature_2m_max[d]) * 10) / 10,
-      rain:   day.precipitation_probability_max[d] || 0
-    });
+  const dns=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const weekly=[];
+  for(let d=0;d<7;d++){
+    const dd=new Date(dy.time[d]);
+    const[dc,di]=wmoLabel(dy.weather_code[d],false,70,10);
+    weekly.push({day:dns[dd.getDay()],today:d===0,cond:dc,icon:di,
+      high:Math.round(dy.temperature_2m_max[d]*10)/10,
+      low:Math.round(dy.temperature_2m_min[d]*10)/10,
+      feels:Math.round((dy.apparent_temperature_max[d]||dy.temperature_2m_max[d])*10)/10,
+      rain:dy.precipitation_probability_max[d]||0});
   }
 
-  // Sun times from daily API
-  let sunrise = '5:10 AM', sunset = '6:45 PM', duration = '13h 35m';
-  if (day.sunrise && day.sunrise[0]) {
-    const sr = new Date(day.sunrise[0]), ss = new Date(day.sunset[0]);
-    const fmt = d2 => d2.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-    const dm = Math.round((ss - sr) / 60000);
-    sunrise = fmt(sr); sunset = fmt(ss);
-    duration = `${Math.floor(dm/60)}h ${dm%60}m`;
+  // Sun times
+  let sunrise='5:10 AM',sunset='6:45 PM',duration='13h 35m';
+  if(dy.sunrise&&dy.sunrise[0]){
+    const sr=new Date(dy.sunrise[0]),ss=new Date(dy.sunset[0]);
+    const fmt=d2=>d2.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+    const dm=Math.round((ss-sr)/60000);
+    sunrise=fmt(sr);sunset=fmt(ss);duration=`${Math.floor(dm/60)}h ${dm%60}m`;
   }
 
   // AQI
-  let aqi = 0, pm25 = 0, pm10 = 0;
-  if (aq && aq.current) {
-    aqi  = aq.current.us_aqi || 0;
-    pm25 = Math.round((aq.current.pm2_5 || 0) * 10) / 10;
-    pm10 = Math.round((aq.current.pm10  || 0) * 10) / 10;
-    if (!aqi && pm25) aqi = pm25ToAqi(pm25);
+  let aqi=0,pm25=0,pm10=0;
+  if(aq&&aq.current){
+    aqi=aq.current.us_aqi||0;
+    pm25=Math.round((aq.current.pm2_5||0)*10)/10;
+    pm10=Math.round((aq.current.pm10||0)*10)/10;
+    if(!aqi&&pm25)aqi=pm25ToAqi(pm25);
   }
-  const maskAdv = aqi > 150 ? 'N95 mask recommended outdoors.' :
-                  aqi > 100 ? 'Surgical mask advised for sensitive groups.' :
-                  aqi > 50  ? 'Acceptable air. Sensitive individuals take care.' :
-                  'Air is clean — no mask needed.';
-  const aqiDetail = `PM2.5: ${pm25} µg/m³  ·  PM10: ${pm10} µg/m³  ·  ${maskAdv}`;
+  const maskA=aqi>150?'N95 mask recommended.':aqi>100?'Surgical mask for sensitive groups.':aqi>50?'Acceptable. Sensitive groups take care.':'Air is clean.';
 
   return {
-    current: {
-      temp, feels, cond, icon,
-      humidity: humid, windSpeed: wind, windDir,
-      rainProb: maxRain, rainStart, rainEnd,
-      uvIndex: uv, uvLabel: uvLbl(uv), uvMax, uvPeakTime,
-      high, low, aqi, pm25, pm10, aqiDetail,
-      alert: null
-    },
+    current:{temp,feels,cond,icon,humidity:humid,windSpeed:wind,windDir,
+      rainProb:maxRain,rainStart,rainEnd,uvIndex:uv,uvLabel:uvLbl(uv),
+      uvMax,uvPeakTime:uvPT,high,low,aqi,pm25,pm10,
+      aqiDetail:`PM2.5: ${pm25} µg/m³  ·  PM10: ${pm10} µg/m³  ·  ${maskA}`,
+      alert:null},
     hourly, rainTimeline, weekly,
-    sun: { sunrise, sunset, duration },
-    moon: moonPhase(t.d)
+    sun:{sunrise,sunset,duration},
+    moon:moonPhase(t.d)
   };
 }
 
-// ═══════════════════════════════════════════════════════════
-//  STEP 3: CLAUDE AI — summary + advisory ONLY
-//  Called in background after real data is already rendered
-// ═══════════════════════════════════════════════════════════
+// ── Fetch AI summary via proxy (or generate locally) ─────────
 async function fetchAI(data) {
-  const c = data.current, t = dkNow();
-  const acTemp = Math.max(24, Math.round(c.temp) - 8);
+  // If no proxy configured, generate locally — always works
+  if (!AI_PROXY_URL) {
+    const t = dkNow();
+    const c = data.current;
+    return {
+      summary: localSummary(c, data.moon, t.isNight),
+      advisory: defaultAdvisory(c)
+    };
+  }
 
-  const body = JSON.stringify({
-    model: 'claude-sonnet-4-20250514',
-    max_tokens: 1200,
+  // Use proxy
+  const c = data.current, t = dkNow();
+  const ac = Math.max(24, Math.round(c.temp)-8);
+  const body = {
     messages: [{
       role: 'user',
-      content: `You are DhakaWeatherAI. Output ONE JSON object only — no markdown, no backticks.
+      content: `You are DhakaWeatherAI. Output ONE JSON only — no markdown, no backticks.
 
-Real-time Dhaka data (from Open-Meteo ECMWF, fetched at ${t.label}):
+Real-time Dhaka data (Open-Meteo ECMWF, ${t.label}):
 Temp: ${c.temp}°C | Feels: ${c.feels}°C | Condition: ${c.cond} | Humidity: ${c.humidity}%
-Wind: ${c.windSpeed} km/h ${c.windDir} | Rain today: ${c.rainProb}% | Start: ${c.rainStart} End: ${c.rainEnd}
-UV: ${c.uvIndex} (${c.uvLabel}) | Peak UV: ${c.uvMax} at ${c.uvPeakTime}
-High: ${c.high}°C | Low: ${c.low}°C | AQI: ${c.aqi} | PM2.5: ${c.pm25} | PM10: ${c.pm10}
-7-day: ${data.weekly.map(d=>d.day+':'+d.rain+'%').join(', ')}
+Wind: ${c.windSpeed} km/h ${c.windDir} | Rain: ${c.rainProb}% | Start: ${c.rainStart} | End: ${c.rainEnd}
+UV: ${c.uvIndex} (${c.uvLabel}) | Peak: ${c.uvMax} at ${c.uvPeakTime} | High: ${c.high}°C | Low: ${c.low}°C
+AQI: ${c.aqi} | PM2.5: ${c.pm25} | PM10: ${c.pm10}
+7-day rain: ${data.weekly.map(d=>d.day+':'+d.rain+'%').join(', ')}
+Hourly (next 8h): ${data.hourly.map(h=>h.time+':'+h.temp+'°').join(', ')}
 Night: ${t.isNight}
 
-Return:
+Return ONLY:
 {
-  "summary": "Hello Dhaka Dweller! 👋 [2-3 sentences using real data above: current conditions, expectations, key watch-out]",
+  "summary": "Hello Dhaka Dweller! 👋 [2-3 specific sentences using real data: current condition, what to expect, key watch-out]",
   "advisory": [
-    {"icon":"🌂","title":"[rain title]","desc":"[based on actual ${c.rainProb}% probability]"},
-    {"icon":"😷","title":"[mask title]","desc":"[AQI ${c.aqi} based, name Farmgate/Tejgaon/Hazaribagh/Mohakhali as worst areas]"},
-    {"icon":"👕","title":"[dress title]","desc":"[for ${c.temp}°C / ${c.feels}°C feels-like, ${c.humidity}% humidity]"},
-    {"icon":"❄️","title":"Set AC to ${acTemp}–${acTemp+1}°C","desc":"[outdoor ${c.temp}°C, max 7-8°C indoor gap for health]"},
-    {"icon":"🚧","title":"[waterlogging title]","desc":"[${c.rainProb>50?'list Mirpur-10/Rayer Bazar/Dhanmondi-27/Shyamoli/Rampura':'low risk today'}]"},
-    {"icon":"🦟","title":"[casual tip title]","desc":"[dengue/food safety/sleep/power outage/traffic — most relevant today]"}
+    {"icon":"🌂","title":"Rain Preparedness","desc":"[rain advice based on ${c.rainProb}% probability]"},
+    {"icon":"😷","title":"Face Mask & Air Quality","desc":"[AQI ${c.aqi} based, name Farmgate/Tejgaon/Hazaribagh/Mohakhali if polluted]"},
+    {"icon":"👕","title":"Dress for the Weather","desc":"[for ${c.temp}°C/${c.feels}°C feels-like, ${c.humidity}% humidity]"},
+    {"icon":"❄️","title":"Set AC to ${ac}–${ac+1}°C","desc":"[${c.temp}°C outdoor, 7-8°C max gap health rule]"},
+    {"icon":"🚧","title":"Waterlogging Risk","desc":"[${c.rainProb>50?'name Mirpur-10/Rayer Bazar/Dhanmondi-27/Shyamoli/Rampura':'low risk today'}]"},
+    {"icon":"🦟","title":"Dengue & Mosquito Alert","desc":"[post-rain dengue risk, specific Dhaka neighbourhoods]"}
   ]
 }
-Only JSON. No other text.`
+Only JSON.`
     }]
-  });
+  };
 
-  const r = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST', headers: { 'Content-Type': 'application/json' }, body
+  const r = await fetch(AI_PROXY_URL, {
+    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)
   });
-  if (!r.ok) throw new Error('AI ' + r.status);
+  if (!r.ok) throw new Error('AI proxy ' + r.status);
   const d = await r.json();
   const txt = (d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
   const clean = txt.replace(/```json|```/gi,'').trim();
-  const s=clean.indexOf('{'),e=clean.lastIndexOf('}');
+  const s=clean.indexOf('{'), e=clean.lastIndexOf('}');
   if(s<0||e<0) throw new Error('No JSON');
   return JSON.parse(clean.slice(s,e+1));
 }
 
-// ═══════════════════════════════════════════════════════════
-//  RENDER
-// ═══════════════════════════════════════════════════════════
+// ── Render ───────────────────────────────────────────────────
 function render(data, ai) {
-  const t = dkNow(), c = data.current;
+  const t=dkNow(), c=data.current;
+  sT('hdrUpd',`Updated at ${t.d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:true})} BST`);
 
-  sT('hdrUpd', `Updated at ${t.d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:true})} BST`);
-  sT('aiTxt',  ai?.summary || 'Live data loaded from Open-Meteo ECMWF model.');
+  // AI summary
+  const aiEl=$('aiTxt');
+  if(aiEl){
+    aiEl.classList.remove('loading');
+    aiEl.textContent = ai?.summary || localSummary(c, data.moon, t.isNight);
+  }
 
   // Alert
-  const ab = $('altBar');
+  const ab=$('altBar');
   if(c.alert&&ab){sT('altTxt',c.alert);ab.classList.remove('h');}
   else if(ab)ab.classList.add('h');
 
   // Hero
-  sT('hTemp', Math.round(c.temp));
-  sT('hFeel', Math.round(c.feels));
-  sT('hIco',  c.icon);
-  sT('hCond', c.cond);
-  sT('hHi',   c.high + '°');
-  sT('hLo',   c.low  + '°');
+  sT('hTmp',Math.round(c.temp));
+  sT('hFel',Math.round(c.feels));
+  sT('hIco',c.icon);
+  sT('hCond',c.cond);
+  sT('hHi',c.high+'°');
+  sT('hLo',c.low+'°');
 
   // AQI
-  const ai2 = aqiStyle(c.aqi);
-  const aqNEl = $('aqN'); if(aqNEl){aqNEl.textContent=c.aqi||'—';aqNEl.style.color=ai2.color;}
-  const aqBEl = $('aqB'); if(aqBEl){aqBEl.textContent=ai2.label;aqBEl.style.background=ai2.bg;aqBEl.style.color=ai2.color;}
-  const aqFEl = $('aqF'); if(aqFEl){aqFEl.style.background=`linear-gradient(90deg,var(--gr),${ai2.color})`;raf(()=>{aqFEl.style.width=Math.min(100,ai2.pct)+'%';});}
-  sT('aqD', c.aqiDetail);
+  const as=aqiStyle(c.aqi);
+  const aqnEl=$('aqN'); if(aqnEl){aqnEl.textContent=c.aqi||'—';aqnEl.style.color=as.color;}
+  const aqbEl=$('aqB'); if(aqbEl){aqbEl.textContent=as.label;aqbEl.style.background=as.bg;aqbEl.style.color=as.color;}
+  const aqfEl=$('aqF'); if(aqfEl){aqfEl.style.background=`linear-gradient(90deg,var(--gr),${as.color})`;raf(()=>{aqfEl.style.width=Math.min(100,as.pct)+'%';});}
+  sT('aqD',c.aqiDetail);
 
   // Humidity
-  sT('mH',  c.humidity+'%');
-  sT('mHS', c.humidity>80?'Very humid':c.humidity>65?'Humid':'Comfortable');
+  sT('mH',c.humidity+'%');
+  sT('mHS',c.humidity>80?'Very humid':c.humidity>65?'Humid':'Comfortable');
   raf(()=>{const b=$('mHB');if(b)b.style.width=c.humidity+'%';});
 
   // Wind
-  sT('mW',  c.windSpeed+' km/h');
-  sT('mWD', c.windDir);
+  sT('mW',c.windSpeed+' km/h'); sT('mWD',c.windDir);
   raf(()=>{
     const sv=$('wA');if(sv)sv.style.transform=`rotate(${compassToDeg(c.windDir)}deg)`;
     const wb=$('mWB');if(wb)wb.style.width=Math.min(100,c.windSpeed/60*100)+'%';
   });
 
   // Rain
-  sT('mR',  c.rainProb+'%');
-  sT('mRS', c.rainStart);
-  sT('mRE', c.rainEnd);
+  sT('mR',c.rainProb+'%'); sT('mRS',c.rainStart); sT('mRE',c.rainEnd);
   raf(()=>{const b=$('mRB');if(b)b.style.width=c.rainProb+'%';});
 
   // UV
-  sT('mU',  t.isNight?'0':c.uvIndex);
-  sT('mUL', t.isNight?'Night — No UV':c.uvLabel);
-  sH('mUP', !t.isNight&&c.uvMax&&c.uvPeakTime?`Max <b>${c.uvMax}</b> at ${c.uvPeakTime}`:t.isNight?'Resumes after sunrise':'');
+  sT('mU',t.isNight?'0':c.uvIndex);
+  sT('mUL',t.isNight?'Night — No UV':c.uvLabel);
+  sH('mUP',!t.isNight&&c.uvMax&&c.uvPeakTime?`Max <b>${c.uvMax}</b> at ${c.uvPeakTime}`:t.isNight?'Resumes after sunrise':'');
   raf(()=>{const b=$('mUB');if(b)b.style.width=t.isNight?'0':Math.min(100,c.uvIndex/11*100)+'%';});
 
   // Sun & Moon
-  const sun = data.sun, moon = data.moon;
-  sT('sR',   sun.sunrise);  sT('sS',  sun.sunset);  sT('sD',  sun.duration+' daylight');
-  sT('mIco', moon.icon);    sT('mPh', moon.phase);
-  sT('mIl',  moon.illumination+'% illuminated');
-  sT('mFu',  moon.nextFull); sT('mNw', moon.nextNew);
+  const sun=data.sun,moon=data.moon;
+  sT('sR',sun.sunrise);sT('sS',sun.sunset);sT('sD',sun.duration+' daylight');
+  sT('mIco',moon.icon);sT('mPh',moon.phase);
+  sT('mIl',moon.illumination+'% illuminated');
+  sT('mFu',moon.nextFull);sT('mNw',moon.nextNew);
   raf(()=>{const b=$('mBr');if(b)b.style.width=moon.illumination+'%';renderArc(sun.sunrise,sun.sunset);});
 
   // Hourly
@@ -885,10 +853,10 @@ function render(data, ai) {
     data.hourly.forEach((h,i)=>{
       const div=document.createElement('div');
       div.className='hc'+(i===0?' now':'');
-      div.innerHTML=`<div class="ht">${h.time}</div><div class="hi2">${h.icon}</div>
-        <div class="htp">${Math.round(h.temp)}°</div>
-        <div class="hfl">feels</div><div class="hfe">${Math.round(h.feels)}°</div>
-        <div class="hrn">${h.rain>0?h.rain+'%':'—'}</div>`;
+      div.innerHTML=`<div class="ht">${h.time}</div><div class="hi2">${h.icon}</div>`+
+        `<div class="htp">${Math.round(h.temp)}°</div>`+
+        `<div class="hfl">feels</div><div class="hfe">${Math.round(h.feels)}°</div>`+
+        `<div class="hrn">${h.rain>0?h.rain+'%':'—'}</div>`;
       hs.appendChild(div);
     });
   }
@@ -899,17 +867,16 @@ function render(data, ai) {
     const has=Array.isArray(data.rainTimeline)&&data.rainTimeline.length>0;
     rtEl.classList.toggle('h',!has);
     if(has){
-      const track=rtB.querySelector('.rtk');
-      rtB.innerHTML='';if(track)rtB.appendChild(track);
+      const track=rtB.querySelector('.rtk'); rtB.innerHTML=''; if(track)rtB.appendChild(track);
       const dm={low:'d-lo',medium:'d-md',high:'d-hi',peak:'d-pk',end:'d-en'};
       const bm={low:'tg-lo',medium:'tg-md',high:'tg-hi',peak:'tg-pk',end:'tg-en'};
       const lm={low:'Light',medium:'Moderate',high:'Heavy',peak:'Peak',end:'Clearing'};
       data.rainTimeline.forEach(ev=>{
         const div=document.createElement('div');div.className='rte';
         const k=ev.intensity||'low';
-        div.innerHTML=`<div class="rtd ${dm[k]||'d-lo'}"></div>
-          <div class="rtm">${ev.time}</div><div class="rtx">${ev.desc}</div>
-          <span class="rttg ${bm[k]||'tg-lo'}">${lm[k]||'Light'}</span>`;
+        div.innerHTML=`<div class="rtd ${dm[k]||'d-lo'}"></div>`+
+          `<div class="rtm">${ev.time}</div><div class="rtx">${ev.desc}</div>`+
+          `<span class="rttg ${bm[k]||'tg-lo'}">${lm[k]||'Light'}</span>`;
         rtB.appendChild(div);
       });
       raf(()=>{const f=$('rtF');if(f)f.style.height='100%';});
@@ -923,14 +890,12 @@ function render(data, ai) {
     data.weekly.forEach(day=>{
       const div=document.createElement('div');div.className='dr';
       const rc=day.rain>=70?'var(--storm)':day.rain>=40?'var(--rain)':'var(--t3)';
-      div.innerHTML=`
-        <div class="dn${day.today?' td':''}">${day.today?'Today':day.day}</div>
-        <div class="dic">${day.icon}</div><div class="dc">${day.cond}</div>
-        <div class="dri">
-          <div class="drp" style="color:${rc}">${day.rain}%</div>
-          <div class="dtp">H:${Math.round(day.high)}° L:${Math.round(day.low)}°</div>
-          <div class="dfl">feels</div><div class="dfe">${Math.round(day.feels)}°</div>
-        </div>`;
+      div.innerHTML=
+        `<div class="dn${day.today?' td':''}">${day.today?'Today':day.day}</div>`+
+        `<div class="dic">${day.icon}</div><div class="dc">${day.cond}</div>`+
+        `<div class="dri"><div class="drp" style="color:${rc}">${day.rain}%</div>`+
+        `<div class="dtp">H:${Math.round(day.high)}° L:${Math.round(day.low)}°</div>`+
+        `<div class="dfl">feels</div><div class="dfe">${Math.round(day.feels)}°</div></div>`;
       wl.appendChild(div);
     });
   }
@@ -943,9 +908,9 @@ function render(data, ai) {
     data.weekly.forEach(day=>{
       const pct=day.rain||0,cls=pct>=70?'hi':pct>=40?'md':'lo';
       const col=document.createElement('div');col.className='bco';
-      col.innerHTML=`<div class="bpct">${pct}%</div>
-        <div class="bf ${cls}" data-h="${(pct/maxP)*64}" style="height:0px"></div>
-        <div class="bd">${(day.day||'').slice(0,2)}</div>`;
+      col.innerHTML=`<div class="bpct">${pct}%</div>`+
+        `<div class="bf ${cls}" data-h="${(pct/maxP)*64}" style="height:0px"></div>`+
+        `<div class="bd">${(day.day||'').slice(0,2)}</div>`;
       ch.appendChild(col);
     });
     raf(()=>{ch.querySelectorAll('.bf').forEach(b=>{b.style.height=b.dataset.h+'px';});});
@@ -955,10 +920,10 @@ function render(data, ai) {
   const al=$('adL');
   if(al){
     al.innerHTML='';
-    const items=ai?.advisory||defaultAdvisory(c);
-    items.forEach(a=>{
+    (ai?.advisory||defaultAdvisory(c)).forEach(a=>{
       const div=document.createElement('div');div.className='adc';
-      div.innerHTML=`<div class="adi">${a.icon||'ℹ️'}</div><div><div class="adt">${a.title||''}</div><div class="add">${a.desc||''}</div></div>`;
+      div.innerHTML=`<div class="adi">${a.icon||'ℹ️'}</div>`+
+        `<div><div class="adt">${a.title||''}</div><div class="add">${a.desc||''}</div></div>`;
       al.appendChild(div);
     });
   }
@@ -966,83 +931,86 @@ function render(data, ai) {
   sT('tsEl',`Last updated ${t.d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:true})} BST`);
 }
 
-function defaultAdvisory(c) {
-  const ac=Math.max(24,Math.round(c.temp)-8), ai=aqiStyle(c.aqi);
-  return [
-    {icon:'🌂',title:'Rain Preparedness',desc:c.rainProb>50?`${c.rainProb}% probability — carry umbrella. Rain ${c.rainStart!=='Not expected'?'from '+c.rainStart:'not expected yet'}.`:`Low rain risk (${c.rainProb}%). No umbrella needed today.`},
-    {icon:'😷',title:'Air Quality',desc:`AQI ${c.aqi} — ${ai.label}. ${c.pm25>35?'Wear N95 mask outdoors. Worst near Farmgate, Tejgaon, Hazaribagh, Mohakhali.':'Air is acceptable today.'}`},
-    {icon:'👕',title:'Dress Light',desc:`${c.temp}°C with ${c.humidity}% humidity feels like ${Math.round(c.feels)}°C. Wear loose, breathable cotton in light colours. Moisture-wicking fabrics recommended.`},
-    {icon:'❄️',title:`Set AC ${ac}–${ac+1}°C`,desc:`Outdoor is ${c.temp}°C — keep indoor AC at ${ac}–${ac+1}°C (max 7-8°C gap). Bigger gap causes respiratory strain and shock when stepping outside.`},
-    {icon:'🚧',title:'Waterlogging Risk',desc:c.rainProb>50?'Post-rain: Mirpur-10, Rayer Bazar, Dhanmondi-27, Shyamoli, Rampura flood with 30mm+ rain. Avoid these after heavy rain.':'Low waterlogging risk today.'},
-    {icon:'🦟',title:'Dengue Alert',desc:'Empty balcony/AC tray standing water — Aedes mosquitoes breed in 48h. Use repellent after sunset, especially Mohammadpur, Uttara, Bashundhara R/A.'}
-  ];
-}
-
-// ── SHOW APP ──────────────────────────────────────────────
 function showApp() {
   const ldr=$('ldr');
   if(ldr){ldr.classList.add('out');setTimeout(()=>{ldr.style.display='none';},480);}
   const app=$('app');if(app)app.style.display='block';
 }
 
-// ═══════════════════════════════════════════════════════════
-//  MAIN LOAD
-// ═══════════════════════════════════════════════════════════
+// ── Main load orchestrator ───────────────────────────────────
 async function loadWeather() {
   const lt=$('ldrTxt'),ls=$('ldrSub');
   if(lt)lt.textContent='Reading the sky…';
   if(ls)ls.textContent='Connecting to Open-Meteo weather stations';
 
-  // Fetch Open-Meteo (direct CORS fetch — works in real browser)
-  const [wx, aq] = await Promise.all([
-    fetchOpenMeteo(),
-    fetchAirQuality().catch(() => null)
+  // Both Open-Meteo calls in parallel
+  const [wx,aq] = await Promise.all([
+    fetchWx(),
+    fetchAQ().catch(()=>null)
   ]);
 
-  if(ls)ls.textContent='Processing weather data…';
-  const data = processData(wx, aq);
+  if(ls)ls.textContent='Processing…';
+  const data = process(wx,aq);
 
-  // Show UI immediately with real data
+  // Show UI immediately — all weather data is ready
   showApp();
+  // Show loading shimmer on AI summary while it fetches
+  const aiEl=$('aiTxt');
+  if(aiEl)aiEl.classList.add('loading');
   render(data, null);
 
-  // Fetch AI narrative in background (non-blocking)
-  if(ls)ls.textContent='Generating AI summary…';
-  fetchAI(data).then(ai => {
-    sT('aiTxt', ai.summary || '—');
+  // AI runs in background — never blocks the UI
+  fetchAI(data).then(ai=>{
+    if(aiEl){aiEl.classList.remove('loading');aiEl.textContent=ai.summary||localSummary(data.current,data.moon,dkNow().isNight);}
     const al=$('adL');
     if(al&&ai.advisory){
       al.innerHTML='';
       ai.advisory.forEach(a=>{
         const div=document.createElement('div');div.className='adc';
-        div.innerHTML=`<div class="adi">${a.icon||'ℹ️'}</div><div><div class="adt">${a.title||''}</div><div class="add">${a.desc||''}</div></div>`;
+        div.innerHTML=`<div class="adi">${a.icon||'ℹ️'}</div>`+
+          `<div><div class="adt">${a.title||''}</div><div class="add">${a.desc||''}</div></div>`;
         al.appendChild(div);
       });
     }
   }).catch(()=>{
-    // AI failed — default advisory already rendered, just update summary
-    sT('aiTxt','Live weather data loaded. AI summary unavailable — tap ↻ to retry.');
+    // Silently fall back to local summary — already rendered
+    if(aiEl){aiEl.classList.remove('loading');aiEl.textContent=localSummary(data.current,data.moon,dkNow().isNight);}
   });
 }
 
-// ─────────────────────────────────────────────────────────
+// ── Init ─────────────────────────────────────────────────────
+window._installSetup = () => {
+  const btn=$('insBtn'),x=$('insX'),bar=$('insBar');
+  if(btn)btn.addEventListener('click',()=>{if(dip){dip.prompt();dip.userChoice.then(()=>{dip=null;if(bar)bar.classList.remove('show');});}});
+  if(x)x.addEventListener('click',()=>{if(bar)bar.classList.remove('show');});
+};
+
 async function init() {
   startClock();
+  window._installSetup();
   try {
     await loadWeather();
   } catch(err) {
     showApp();
-    sT('aiTxt', err.message && err.message.includes('Failed to fetch')
-      ? 'Network error: Open-Meteo unreachable. This app must be opened in a real browser — not inside Claude.ai. Save the HTML file and open it in Chrome or Safari on your phone.'
-      : `Could not load weather data. Tap ↻ to retry. (${err.message||'unknown error'})`);
+    const aiEl=$('aiTxt');
+    if(aiEl){
+      aiEl.classList.remove('loading');
+      aiEl.textContent = err.message && err.message.includes('fetch')
+        ? 'Unable to connect. Check your internet connection and tap ↻ to retry.'
+        : 'Weather data temporarily unavailable. Tap ↻ to retry.';
+    }
   }
 }
 
 async function doRefresh() {
-  const btn=$('btnR');if(btn)btn.classList.add('spin');
+  const btn=$('rBtn');if(btn)btn.classList.add('spin');
+  const aiEl=$('aiTxt');if(aiEl)aiEl.classList.add('loading');
   try { await loadWeather(); }
-  catch(err) { sT('aiTxt',`Refresh failed — tap ↻ again. (${err.message||'error'})`); }
-  finally { if(btn)btn.classList.remove('spin'); }
+  catch(err) {
+    if(aiEl){aiEl.classList.remove('loading');aiEl.textContent='Refresh failed — tap ↻ again.';}
+  } finally {
+    if(btn)btn.classList.remove('spin');
+  }
 }
 
 init();
