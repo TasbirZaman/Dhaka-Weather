@@ -390,7 +390,7 @@ body{font-family:'Google Sans',system-ui,sans-serif;background:var(--bg);color:v
 //  proxies to Anthropic (see worker.js in this repo).
 //  If left empty, a smart local summary is generated instead.
 // ═══════════════════════════════════════════════════════════
-const AI_PROXY_URL = ''; // e.g. 'https://dhaka-weather-ai.YOUR-SUBDOMAIN.workers.dev/ai-summary'
+const AI_PROXY_URL = 'dhaka-weather-ai.tasbirzamantonmoy.workers.dev/ai-summary'; // e.g. 'https://dhaka-weather-ai.YOUR-SUBDOMAIN.workers.dev/ai-summary'
 
 const LAT = 23.8103, LON = 90.4125;
 
@@ -415,15 +415,22 @@ if ('serviceWorker' in navigator) {
 
 // ── Dhaka time (UTC+6) ──────────────────────────────────────
 function dkNow() {
-  const n = new Date();
-  const d = new Date(n.getTime() + n.getTimezoneOffset() * 60000 + 6 * 3600000);
+  const now = new Date();
+  const d = new Date(now.getTime() + now.getTimezoneOffset() * 60000 + 6 * 3600000);
+  
+  // Extract correct local hour components to prevent UTC fallback
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const dy = String(d.getDate()).padStart(2, '0');
+  const h = String(d.getHours()).padStart(2, '0');
+  
   return {
     d, hr: d.getHours(), min: d.getMinutes(),
     isNight: d.getHours() >= 19 || d.getHours() < 6,
-    isoHr: d.toISOString().slice(0, 13),
+    isoHr: `${y}-${m}-${dy}T${h}`,
     label: d.toLocaleString('en-US', {
-      weekday:'long', month:'long', day:'numeric', year:'numeric',
-      hour:'2-digit', minute:'2-digit', hour12:true
+      weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
+      hour: '2-digit', minute: '2-digit', hour12: true
     })
   };
 }
